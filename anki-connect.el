@@ -10,7 +10,7 @@ PARAMS should be an alist"
     (request-response-data
      (request ANKI-CONNECT-URL
               :type "POST"
-              :data (format "{\"action\" : %S,\"params\" : %s}" action params)
+              :data (encode-coding-string (format "{\"action\" : %S,\"params\" : %s}" action params) 'utf-8)
               :parser 'json-read
               :sync t
               ))))
